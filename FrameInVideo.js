@@ -30,7 +30,7 @@ function getFramesOccurances(video, frame) {
     sizeOfFrame,
     targetFrameHash
   );
-  console.log(targetFrameOccurences);
+  console.log('Generated Outupt: ', targetFrameOccurences);
   return targetFrameOccurences;
 }
 
@@ -89,9 +89,9 @@ function arraysIdentical(a1, a2) {
 function runTestCase(test) {
   Object.keys(test).forEach((key, index) => {
     let video = test[key];
-    console.log('VIDEO: ' + video['video']);
-    console.log('TARGET: ' + video['target']);
-    // console.log('OUTPUT: ' + video['output']);
+    console.log('VIDEO: ', video['video']);
+    console.log('TARGET: ', video['target']);
+    console.log('Required OUTPUT: ', video['output']);
     if (
       getFramesOccurances(video['video'], video['target']).equals(
         video['output']
@@ -99,7 +99,6 @@ function runTestCase(test) {
     ) {
       console.log('Test Case ' + (index + 1) + ': Passed\n');
     } else {
-      console.log(video['output']);
       console.log('Test Case ' + (index + 1) + ': Failed\n');
     }
   });
