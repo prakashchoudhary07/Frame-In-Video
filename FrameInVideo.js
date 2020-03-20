@@ -1,3 +1,27 @@
+// Defined Array.eqauls method
+if (Array.prototype.equals) {
+  console.warn('Overriding existing Array.prototype.equals ');
+}
+
+Array.prototype.equals = function(array) {
+  if (!array) {
+    return false;
+  }
+  if (this.length != array.length) {
+    return false;
+  }
+  for (let i = 0, l = this.length; i < l; i++) {
+    if (this[i] instanceof Array && array[i] instanceof Array) {
+      if (!this[i].equals(array[i])) {
+        return false;
+      }
+    } else if (this[i] != array[i]) {
+      return false;
+    }
+  }
+  return true;
+};
+
 function getFramesOccurances(video, frame) {
   const targetFrameHash = getHash(frame);
   const sizeOfFrame = frame.length;
@@ -52,6 +76,16 @@ function getTargetOccurances(video, sizeOfFrame, targetFrameHash) {
   return listOfOccurrences;
 }
 
+function arraysIdentical(a1, a2) {
+  var i = a1.length;
+  if (i != a2.length) return false;
+  var i = a1.length;
+  while (i--) {
+    if (a1[i] !== a2[i]) return false;
+  }
+  return true;
+}
+
 function runTestCase(test) {
   Object.keys(test).forEach((key, index) => {
     let video = test[key];
@@ -59,8 +93,9 @@ function runTestCase(test) {
     console.log('TARGET: ' + video['target']);
     // console.log('OUTPUT: ' + video['output']);
     if (
-      getFramesOccurances(video['video'], video['target']).toLocaleString() ===
-      video['output'].toLocaleString()
+      getFramesOccurances(video['video'], video['target']).equals(
+        video['output']
+      )
     ) {
       console.log('Test Case ' + (index + 1) + ': Passed\n');
     } else {
