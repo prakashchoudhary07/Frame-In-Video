@@ -4,7 +4,7 @@ To run the code run test.js file.
 It contains tests on which the code will run.
 
 Example test case:  
-INPUT
+Input:
 
 ```
 const testCases = {
@@ -22,7 +22,7 @@ const testCases = {
 };
 ```
 
-Output
+Output:
 
 ```
 VIDEO:  abcghjbcakjlbnmvbc
