@@ -1,6 +1,6 @@
 # Frame-In-Video
 
-To run the code run test.js file.  
+To run the code run test/test.js file.  
 It contains tests on which the code will run.
 
 Example test case:  

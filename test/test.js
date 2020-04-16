@@ -1,5 +1,5 @@
 // Test Runner to find frames in video with all possible values.
-const { runTestCase } = require('./FrameInVideo');
+const { runTestCase } = require('../src/FrameInVideo');
 
 const testCases = {
   video1: {

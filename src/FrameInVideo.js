@@ -3,7 +3,7 @@ if (Array.prototype.equals) {
   console.warn('Overriding existing Array.prototype.equals ');
 }
 
-Array.prototype.equals = function(array) {
+Array.prototype.equals = function (array) {
   if (!array) {
     return false;
   }
